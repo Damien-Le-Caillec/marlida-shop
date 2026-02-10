@@ -1,0 +1,78 @@
+/* Import des polices : Cormorant (pour le côté luxe/serif) et Montserrat (pour la modernité) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+
+:root {
+  /* TA PALETTE EXACTE (Convertie depuis tes codes RGB) */
+  --color-dark: #3D2114;       /* Marron foncé (Texte, Footer) */
+  --color-gold: #9F8114;       /* Doré/Moutarde (Prix, Accents) */
+  --color-sand: #C48537;       /* Ocre (Boutons hover, Détails) */
+  --color-cream: #EAD6C4;      /* Beige (Fond du site) */
+  --color-white: #FFFFFF;
+  
+  /* POLICES */
+  --font-title: 'Cormorant Garamond', serif;
+  --font-text: 'Montserrat', sans-serif;
+  
+  /* ESPACEMENT */
+  --spacing-container: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-cream); /* Fond beige comme sur tes slides */
+  color: var(--color-dark);
+  font-family: var(--font-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* TITRES */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-title);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* CONTAINER GLOBAL */
+.container {
+  max-width: var(--spacing-container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* BOUTON STANDARD (Style Marlida) */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+  padding: 14px 28px;
+  border: 1px solid var(--color-dark);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-family: var(--font-text);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+}

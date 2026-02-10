@@ -1,0 +1,70 @@
+/* Bandeau noir "Livraison offerte" */
+.top-bar {
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+  text-align: center;
+  font-size: 11px;
+  padding: 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navigation principale */
+.header {
+  border-bottom: 1px solid rgba(61, 33, 20, 0.1); /* Trait fin marron */
+  position: sticky;
+  top: 0;
+  background-color: var(--color-cream);
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  height: 90px;
+}
+
+/* Liens de gauche (Nouveautés, Mode...) */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+}
+
+.nav-links a {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: var(--color-gold);
+}
+
+/* Logo Central */
+.logo {
+  flex: 1;
+  text-align: center;
+}
+
+.logo h1 {
+  font-size: 2.8rem;
+  color: var(--color-dark);
+  letter-spacing: 4px;
+  margin: 0;
+  /* Effet de style sur le logo comme sur la maquette */
+  text-shadow: 1px 1px 0px rgba(159, 129, 20, 0.3); 
+}
+
+/* Icônes de droite (Recherche, Compte, Panier) */
+.nav-icons {
+  display: flex;
+  gap: 25px;
+  flex: 1;
+  justify-content: flex-end;
+  font-size: 12px;
+  text-transform: uppercase;
+}
