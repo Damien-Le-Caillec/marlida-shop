@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import productsData from '../data.json';
-import { Product } from '../types';
+import type { Product } from '../types';
 import './Home.css';
 
 // On force le typage du JSON pour être sûr

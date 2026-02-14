@@ -1,23 +1,116 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
 
+// 1. Menu de GAUCHE (Sans "La Marque")
+const LEFT_MENU_ITEMS = [
+  {
+    label: "Nouveauté",
+    path: "/mode",
+    submenu: [
+      { label: "Nouvelle Collection", path: "/mode" },
+      { label: "Marlida x Collab", path: "/mode" }
+    ]
+  },
+  {
+    label: "Mode",
+    path: "/mode",
+    submenu: [
+      { label: "Tout voir", path: "/mode" },
+      { label: "Nouveautés", path: "/mode" },
+      { label: "Robes", path: "/mode" },
+      { label: "Jupes", path: "/mode" },
+      { label: "Mailles", path: "/mode" },
+      { label: "Tops", path: "/mode" },
+      { label: "Pantalons", path: "/mode" }
+    ]
+  },
+  {
+    label: "Accessoires",
+    path: "/accessoires",
+    submenu: [
+      { label: "Tout voir", path: "/accessoires" },
+      { label: "Accessoires Cheveux", path: "/accessoires" },
+      { label: "Lifestyle", path: "/accessoires" },
+      { label: "Sacs", path: "/accessoires" },
+      { label: "Bijoux", path: "/accessoires" }
+    ]
+  },
+  {
+    label: "Archives",
+    path: "/mode",
+    submenu: [
+      { label: "Tout voir", path: "/mode" },
+      { label: "Dernières Chances", path: "/mode" }
+    ]
+  }
+];
+
+// 2. Menu "La Marque" (À insérer à droite)
+const BRAND_MENU_ITEM = {
+  label: "La Marque",
+  path: "/",
+  submenu: [
+    { label: "L'Histoire", path: "/" },
+    { label: "La Créatrice", path: "/" },
+    { label: "Style", path: "/" },
+    { label: "Guide d'entretien", path: "/" },
+    { label: "Nos Lookbooks", path: "/" },
+    { label: "Articles", path: "/" },
+    { label: "Les Femmes", path: "/" },
+    { label: "Production", path: "/" },
+    { label: "Nos Matières", path: "/" },
+    { label: "Nos Savoir-Faire", path: "/" },
+    { label: "Nos Autres Engagements", path: "/" }
+  ]
+};
+
 const Header = () => {
   return (
     <header className="header">
       <div className="top-bar">Livraison offerte dès 200€ d'achat</div>
+      
       <nav className="navbar container">
+        {/* --- GAUCHE : Menu Principal --- */}
         <ul className="nav-links">
-          <li><Link to="/mode">Nouveautés</Link></li>
-          <li><Link to="/mode">Mode</Link></li>
-          <li><Link to="/accessoires">Accessoires</Link></li>
+          {LEFT_MENU_ITEMS.map((item, index) => (
+            <li key={index} className="menu-item">
+              <Link to={item.path} className="menu-link">{item.label}</Link>
+              {item.submenu && (
+                <ul className="dropdown">
+                  {item.submenu.map((subItem, subIndex) => (
+                    <li key={subIndex}>
+                      <Link to={subItem.path}>{subItem.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
         </ul>
         
+        {/* --- CENTRE : Logo --- */}
         <div className="logo">
           <Link to="/"><h1>Marlida</h1></Link>
         </div>
 
+        {/* --- DROITE : La Marque + Icônes --- */}
         <div className="nav-icons">
-          <span>Recherche</span>
+          
+          {/* ICI : On insère "La Marque" à la place de Recherche */}
+          <div className="menu-item">
+            <Link to={BRAND_MENU_ITEM.path} className="menu-link">
+              {BRAND_MENU_ITEM.label}
+            </Link>
+            <ul className="dropdown dropdown-right"> {/* Ajout de la classe dropdown-right */}
+              {BRAND_MENU_ITEM.submenu.map((subItem, subIndex) => (
+                <li key={subIndex}>
+                  <Link to={subItem.path}>{subItem.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Les autres icônes */}
           <span>Compte</span>
           <span>Panier (0)</span>
         </div>

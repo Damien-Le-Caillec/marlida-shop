@@ -1,4 +1,4 @@
-/* Bandeau noir "Livraison offerte" */
+/* Bandeau noir */
 .top-bar {
   background-color: var(--color-dark);
   color: var(--color-cream);
@@ -9,42 +9,106 @@
   letter-spacing: 1px;
 }
 
-/* Navigation principale */
+/* Structure Header */
 .header {
-  border-bottom: 1px solid rgba(61, 33, 20, 0.1); /* Trait fin marron */
+  border-bottom: 1px solid rgba(61, 33, 20, 0.1);
   position: sticky;
   top: 0;
   background-color: var(--color-cream);
-  z-index: 100;
+  z-index: 1000;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 0 20px;
   height: 90px;
+  position: relative;
 }
 
-/* Liens de gauche (Nouveautés, Mode...) */
+/* --- NAVIGATION & DROPDOWNS --- */
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   flex: 1;
+  height: 100%;
+  align-items: center;
 }
 
-.nav-links a {
-  font-size: 12px;
+.menu-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.menu-link {
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
+  color: var(--color-dark);
+  padding: 10px 0;
+  cursor: pointer;
 }
 
-.nav-links a:hover {
+.menu-link:hover {
   color: var(--color-gold);
 }
 
-/* Logo Central */
+/* Le Menu Déroulant */
+.dropdown {
+  position: absolute;
+  top: 90px;
+  left: -20px; /* Alignement par défaut à gauche */
+  background-color: var(--color-cream);
+  min-width: 220px;
+  box-shadow: 0 10px 30px rgba(61, 33, 20, 0.1);
+  border: 1px solid rgba(61, 33, 20, 0.05);
+  padding: 20px 0;
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+/* NOUVEAU : Alignement spécifique pour le menu de droite */
+.dropdown-right {
+  left: auto;
+  right: 0; /* S'aligne sur la droite */
+  text-align: right; /* Optionnel : texte aligné à droite ou gauche selon préférence */
+}
+/* On remet le texte à gauche dans le sous-menu pour la lisibilité */
+.dropdown-right li a {
+  text-align: left; 
+}
+
+.menu-item:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown li a {
+  display: block;
+  padding: 10px 30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-dark);
+  transition: all 0.2s;
+}
+
+.dropdown li a:hover {
+  background-color: rgba(61, 33, 20, 0.05);
+  color: var(--color-gold);
+  padding-left: 35px;
+}
+
+/* --- LOGO & ICONES --- */
 .logo {
   flex: 1;
   text-align: center;
@@ -55,11 +119,10 @@
   color: var(--color-dark);
   letter-spacing: 4px;
   margin: 0;
-  /* Effet de style sur le logo comme sur la maquette */
   text-shadow: 1px 1px 0px rgba(159, 129, 20, 0.3); 
 }
 
-/* Icônes de droite (Recherche, Compte, Panier) */
+/* Modifié pour accueillir le menu */
 .nav-icons {
   display: flex;
   gap: 25px;
@@ -67,4 +130,6 @@
   justify-content: flex-end;
   font-size: 12px;
   text-transform: uppercase;
+  height: 100%; /* Important pour que le hover fonctionne */
+  align-items: center; /* Important pour centrer verticalement */
 }

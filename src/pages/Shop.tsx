@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import productsData from '../data.json';
-import { Product } from '../types';
+import type { Product } from '../types';
 
 // Ici, on dit que Shop attend forcément une prop "category" qui est une chaine de caractères
 interface ShopProps {
-  category: string;
+  category: 'mode' | 'accessoires';
 }
 
 const products: Product[] = productsData as Product[];

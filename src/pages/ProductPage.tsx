@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import productsData from '../data.json';
-import { Product } from '../types';
+import type { Product } from '../types';
 import './ProductPage.css';
 
 const products: Product[] = productsData as Product[];
