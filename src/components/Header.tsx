@@ -17,11 +17,11 @@ const LEFT_MENU_ITEMS = [
     submenu: [
       { label: "Tout voir", path: "/mode" },
       { label: "Nouveautés", path: "/mode" },
-      { label: "Robes", path: "/mode" },
-      { label: "Jupes", path: "/mode" },
-      { label: "Mailles", path: "/mode" },
-      { label: "Tops", path: "/mode" },
-      { label: "Pantalons", path: "/mode" }
+      { label: "Robes", path: "/mode/robes" },        // <-- Changé !
+      { label: "Jupes", path: "/mode/jupes" },        // <-- Changé !
+      { label: "Mailles", path: "/mode/mailles" },    // <-- Changé !
+      { label: "Tops", path: "/mode/tops" },          // <-- Changé !
+      { label: "Pantalons", path: "/mode/pantalons" } // <-- Changé !
     ]
   },
   {
@@ -29,10 +29,10 @@ const LEFT_MENU_ITEMS = [
     path: "/accessoires",
     submenu: [
       { label: "Tout voir", path: "/accessoires" },
-      { label: "Accessoires Cheveux", path: "/accessoires" },
-      { label: "Lifestyle", path: "/accessoires" },
-      { label: "Sacs", path: "/accessoires" },
-      { label: "Bijoux", path: "/accessoires" }
+      { label: "Accessoires Cheveux", path: "/accessoires/cheveux" }, // <-- Changé !
+      { label: "Lifestyle", path: "/accessoires/lifestyle" },         // <-- Changé !
+      { label: "Sacs", path: "/accessoires/sacs" },                   // <-- Changé !
+      { label: "Bijoux", path: "/accessoires/bijoux" }                // <-- Changé !
     ]
   },
   {

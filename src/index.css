@@ -1,5 +1,26 @@
-/* Import des polices : Cormorant (pour le côté luxe/serif) et Montserrat (pour la modernité) */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+@font-face {
+  font-family: 'cyrene';
+  src: url('../public/fonts/Cyrene\ Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* On s'assure que la structure prend toute la hauteur */
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Force la page à faire au moins la taille de l'écran */
+}
+
+/* C'EST ICI QUE LA MAGIE OPÈRE 👇 */
+.main-content {
+  flex: 1; /* Cela veut dire : "Grandis pour occuper tout l'espace vide" */
+  width: 100%;
+}
 
 :root {
   /* TA PALETTE EXACTE (Convertie depuis tes codes RGB) */
@@ -10,8 +31,8 @@
   --color-white: #FFFFFF;
   
   /* POLICES */
-  --font-title: 'Cormorant Garamond', serif;
-  --font-text: 'Montserrat', sans-serif;
+  --font-title: 'cyrene', serif;
+  --font-text: 'cyrene', sans-serif;
   
   /* ESPACEMENT */
   --spacing-container: 1200px;
@@ -27,6 +48,7 @@ body {
   background-color: var(--color-cream); /* Fond beige comme sur tes slides */
   color: var(--color-dark);
   font-family: var(--font-text);
+  font-size: 18px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -75,4 +97,22 @@ h1, h2, h3, h4, h5 {
   background-color: transparent;
   color: var(--color-dark);
   border-color: var(--color-dark);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; /* On revient à une taille standard sur mobile */
+  }
+
+  /* Le container ne doit pas toucher les bords de l'écran */
+  .container {
+    padding: 0 15px; 
+    width: 100%;
+  }
+  
+  /* Sécurité pour les images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }

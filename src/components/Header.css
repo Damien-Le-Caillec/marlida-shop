@@ -3,7 +3,7 @@
   background-color: var(--color-dark);
   color: var(--color-cream);
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
   padding: 8px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -44,7 +44,7 @@
 }
 
 .menu-link {
-  font-size: 13px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
@@ -95,7 +95,7 @@
 .dropdown li a {
   display: block;
   padding: 10px 30px;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--color-dark);
@@ -128,8 +128,37 @@
   gap: 25px;
   flex: 1;
   justify-content: flex-end;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   height: 100%; /* Important pour que le hover fonctionne */
   align-items: center; /* Important pour centrer verticalement */
+}
+
+/* --- VERSION MOBILE --- */
+@media (max-width: 1024px) {
+  
+  .navbar {
+    flex-direction: column; /* On empile tout verticalement */
+    height: auto;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  /* On cache le menu de gauche complexe pour l'instant */
+  /* (Idéalement plus tard, on fera un menu "Hamburger" en JavaScript) */
+  .nav-links {
+    display: none; 
+  }
+
+  /* Le Logo bien visible */
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  /* Les icônes (Panier, Compte) restent accessibles */
+  .nav-icons {
+    width: 100%;
+    justify-content: center; /* Centrées */
+    gap: 30px;
+  }
 }

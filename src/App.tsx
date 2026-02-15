@@ -7,20 +7,27 @@ import ProductPage from './pages/ProductPage';
 import './index.css';
 
 function App() {
-    return (
-        <Router>
-            <div className="app">
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/mode" element={<Shop category="mode" />} />
-                    <Route path="/accessoires" element={<Shop category="accessoires" />} />
-                    <Route path="/product/:id" element={<ProductPage />} />
-                </Routes>
-                <Footer />
-            </div>
-        </Router>
-    );
+  return (
+    <Router>
+      <div className="app">
+        <Header />
+        
+        {/* AJOUT : On met le contenu dans une boite "main-content" */}
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mode" element={<Shop category="mode" />} />
+            <Route path="/mode/:subcategory" element={<Shop category="mode" />} />
+            <Route path="/accessoires" element={<Shop category="accessoires" />} />
+            <Route path="/accessoires/:subcategory" element={<Shop category="accessoires" />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
 export default App;
