@@ -5,11 +5,11 @@
     "category": "mode",
     "subcategory": "pantalons",
     "price": 270,
-    "image": "../public/images/ondina/ondina-devant.jpg",
+    "image": "images/ondina/ondina-devant.jpg",
     "images": [
-      "../public/images/ondina/ondina-devant.jpg",
-      "../public/images/ondina/ondina-port.jpg",
-      "../public/images/ondina/ondina-arriere.jpg"
+      "images/ondina/ondina-devant.jpg",
+      "images/ondina/ondina-port.jpg",
+      "images/ondina/ondina-arriere.jpg"
     ],
     "description": "Pantalon large coupe tailleur, élégance intemporelle.",
     "composition": "Lin et Coton",
@@ -21,12 +21,12 @@
     "category": "mode",
     "subcategory": "pantalons",
     "price": 330,
-    "image": "../public/images/amarilis/amarilis-devant.jpg",
+    "image": "images/amarilis/amarilis-devant.jpg",
     "images": [
-      "../public/images/amarilis/amarilis-devant.jpg",
-      "../public/images/amarilis/amarilis-port.jpg",
-      "../public/images/amarilis/amarilis-detail.jpg",
-      "../public/images/amarilis/amarilis-dos.jpg"
+      "images/amarilis/amarilis-devant.jpg",
+      "images/amarilis/amarilis-port.jpg",
+      "images/amarilis/amarilis-detail.jpg",
+      "images/amarilis/amarilis-dos.jpg"
     ],
     "description": "Pantalon avec détails latéraux sophistiqués.",
     "composition": "Soie et Viscose",
@@ -38,12 +38,12 @@
     "category": "mode",
     "subcategory": "tops",
     "price": 390,
-    "image": "../public/images/marea/marea-devant.jpg",
+    "image": "images/marea/marea-devant.jpg",
     "images": [
-      "../public/images/marea/marea-devant.jpg",
-      "../public/images/marea/marea-port.jpg",
-      "../public/images/marea/marea-detail.jpg",
-      "../public/images/marea/marea-dos.jpg"
+      "images/marea/marea-devant.jpg",
+      "images/marea/marea-port.jpg",
+      "images/marea/marea-detail.jpg",
+      "images/marea/marea-dos.jpg"
     ],
     "description": "Chemisier fluide, coupe aérienne.",
     "composition": "100% Soie",
@@ -55,11 +55,11 @@
     "category": "mode",
     "subcategory": "robes",
     "price": 690,
-    "image": "../public/images/naia/naia-devant.jpg",
+    "image": "images/naia/naia-devant.jpg",
     "images": [
-      "../public/images/naia/naia-devant.jpg",
-      "../public/images/naia/naia-port.jpg",
-      "../public/images/naia/naia-dos.jpg"
+      "images/naia/naia-devant.jpg",
+      "images/naia/naia-port.jpg",
+      "images/naia/naia-dos.jpg"
     ],
     "description": "Robe longue de soirée, drapé unique.",
     "composition": "Satin de Soie",
@@ -82,9 +82,9 @@
     "category": "accessoires",
     "subcategory": "bijoux",
     "price": 150,
-    "image": "../public/images/craveiro/craveiro.jpg",
+    "image": "images/craveiro/craveiro.jpg",
     "images": [
-      "../public/images/craveiro/craveiro.jpg"
+      "images/craveiro/craveiro.jpg"
     ],
     "description": "Boucles d'oreilles motif floral.",
     "composition": "Laiton doré",
