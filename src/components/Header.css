@@ -134,6 +134,25 @@
   align-items: center; /* Important pour centrer verticalement */
 }
 
+/* Style pour l'image du logo */
+.logo-img {
+  height: 40px;  /* 👉 C'est ici que tu règles la taille ! (Essaie 30px, 40px ou 50px) */
+  width: auto;   /* Garde les proportions automatiquement */
+  display: block;
+  transition: opacity 0.3s;
+}
+
+.logo-img:hover {
+  opacity: 0.7; /* Petit effet sympa au survol */
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+  .logo-img {
+    height: 30px; /* Un peu plus petit sur téléphone */
+  }
+}
+
 /* --- VERSION MOBILE --- */
 @media (max-width: 1024px) {
   
