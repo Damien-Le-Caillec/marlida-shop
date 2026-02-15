@@ -16,7 +16,7 @@ const ProductPage = () => {
   if (!product) return <div className="container">Produit introuvable.</div>;
 
   // Sécurité : Si 'images' n'existe pas dans le JSON, on utilise juste 'image'
-  const gallery = product.images || [product.image];
+  const gallery: string[] = Array.isArray(product.images) ? product.images : [product.image];
 
   // Fonctions pour changer d'image
   const nextImage = () => {
