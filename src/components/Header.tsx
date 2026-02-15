@@ -90,7 +90,7 @@ const Header = () => {
         
         {/* --- CENTRE : Logo --- */}
         <div className="logo">
-          <Link to="/"><h1>Marlida</h1></Link>
+          <Link to="/"><img src="/images/logo.png" alt="Marlida Paris" className="logo-img" /></Link>
         </div>
 
         {/* --- DROITE : La Marque + Icônes --- */}
