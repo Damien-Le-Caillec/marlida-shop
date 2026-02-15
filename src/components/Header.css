@@ -110,8 +110,21 @@
 
 /* --- LOGO & ICONES --- */
 .logo {
-  flex: 1;
-  text-align: center;
+  /* On le sort du flux normal pour le placer manuellement */
+  position: absolute;
+  
+  /* On le place à 50% du bord gauche */
+  left: 50%;
+  
+  /* Mais comme ça le place par son bord gauche, on le recule de la moitié de sa propre largeur */
+  transform: translateX(-50%);
+  
+  /* On s'assure qu'il reste cliquable */
+  z-index: 10;
+  
+  /* Optionnel : pour centrer verticalement le contenu */
+  display: flex;
+  justify-content: center;
 }
 
 .logo h1 {
