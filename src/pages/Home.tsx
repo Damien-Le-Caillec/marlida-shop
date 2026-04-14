@@ -10,21 +10,17 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* La photo qui reste fixe */}
       <div className="hero">
         <div className="hero-content">
-          <h2>Nouvelle Collection</h2>
+          <h2>Ilhoa</h2>
           <Link to="/mode" className="btn-primary">Découvrir</Link>
         </div>
       </div>
 
-      {/* La section crème qui remonte */}
-      {/* ATTENTION : Pas de classe "container" ici ! Juste "section-new" */}
       <section className="section-new">
         
-        {/* C'est ICI qu'on met le container pour centrer le texte et les produits */}
         <div className="container">
-          <h3>Nouveautés</h3>
+          <h3>Nouvelle collection</h3>
           
           <div className="product-grid">
             {newCollection.map(product => (
