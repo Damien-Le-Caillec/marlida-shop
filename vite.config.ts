@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // AJOUTE CETTE LIGNE (Remplace 'marlida-shop' par le nom EXACT de ton repo GitHub)
-  base: '/marlida-shop/', 
+  base: './', 
 })
