@@ -1,125 +1,252 @@
-/* 1. LA PHOTO FIXE (HERO) */
+/* --- VARIABLES --- */
+:root {
+  --color-beige: #fdfcf8;
+  --color-dark: #1a1a1a;
+  --color-border: #e8e6e1;
+}
+
+/* --- NETTOYAGE GLOBAL POUR LA PAGE HOME --- */
+.home {
+  background-color: var(--color-beige) !important;
+  min-height: 100vh;
+}
+
+/* --- 1. HERO (PHOTO FIXE) --- */
 .hero {
-  /* Le chemin correct est celui-ci (Vite pointe directement dans public) */
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/images/hero.jpg');
-  
+  background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('/marlida-shop/images/hero.jpg');
   background-size: cover;
   background-position: center;
-  
-  /* L'EFFET STICKY */
   position: sticky;
   top: 0;
-  height: 100vh; /* On prend TOUT l'écran pour l'immersion */
+  height: 100vh; 
   z-index: 0;
-  
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.hero-content {
-  text-align: center;
-  color: #fff;
-  z-index: 1; 
-}
-
 .hero h2 {
-  font-size: 4rem;
-  margin-bottom: 30px;
-  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  color: var(--color-white);
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #fff;
 }
 
-.btn-primary:hover {
-  /* On force la couleur crème opaque */
-  background-color: var(--color-cream) !important; 
-  color: var(--color-dark) !important;
-  border-color: var(--color-cream) !important;
-}
-
-/* 2. LE RIDEAU (SECTION SUIVANTE) */
-.section-new {
-  background-color: var(--color-cream); 
-  
-  /* CORRECTION LARGEUR : On force le plein écran */
+/* --- 2. SECTION CARROUSEL --- */
+section.new-collection-carousel {
+  background-color: var(--color-beige) !important;
   width: 100%;
-  max-width: 100%;
-  margin: 0; 
-  padding: 80px 0;
-  
   position: relative; 
-  z-index: 10; /* Passe par-dessus la photo */
-  
-  box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+  z-index: 10; 
+  padding: 80px 0;
+  box-shadow: 0 -15px 35px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
 }
 
-.section-new h3 {
-  font-size: 2.2rem;
-  margin-bottom: 50px;
+.section-header {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   text-align: center;
   color: var(--color-dark);
 }
 
-/* Le reste ne change pas */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-
-.product-card {
+.section-header h2::after {
+  content: '';
   display: block;
-  text-align: center;
-  transition: transform 0.3s ease;
-  background: white;
-  padding-bottom: 15px;
+  width: 40px;
+  height: 1px;
+  background: var(--color-dark);
+  margin: 10px auto 0;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
+/* --- 3. CARROUSEL (CONTENEUR & ITEMS) --- */
+.carousel-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 0 40px 30px; 
+  scrollbar-width: none; 
 }
 
-.product-card img {
+.carousel-container::-webkit-scrollbar {
+  display: none; 
+}
+
+.carousel-item {
+  min-width: 280px; 
+  max-width: 300px;
+  text-decoration: none;
+  color: var(--color-dark);
+  flex: 0 0 auto;
+}
+
+.image-wrapper {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 12px;
+  background-color: #f5f3ed; /* Beige légèrement plus dense pour les cadres */
+}
+
+.image-wrapper img {
   width: 100%;
-  aspect-ratio: 4/5;
+  height: 100%;
   object-fit: cover;
-  margin-bottom: 15px;
+  transition: transform 0.8s ease;
 }
 
-.card-info h4 {
-  font-family: var(--font-text);
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 8px;
+.carousel-item:hover img {
+  transform: scale(1.04);
+}
+
+/* --- 4. FLÈCHES --- */
+.carousel-controls {
+  display: flex;
+  justify-content: center; 
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.carousel-controls button {
+  background: none;
+  border: 1px solid var(--color-dark);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-dark);
+  transition: all 0.3s ease;
+}
+
+.carousel-controls button:hover {
+  background-color: var(--color-dark);
+  color: var(--color-beige);
+}
+
+/* --- 5. GRILLE CATÉGORIES --- */
+section.categories-grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  position: relative;
+  background-color: var(--color-beige) !important;
+}
+
+.categories-top, .categories-bottom {
+  display: flex;
+  width: 100%;
+}
+
+.category-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.categories-top .category-card { width: 50%; }
+.categories-bottom .category-card { width: 33.333%; }
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.15);
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.category-card:hover .category-overlay {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.category-overlay h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.card-info p {
-  color: var(--color-gold);
-  font-family: var(--font-title);
+.btn-discover {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 4px;
+}
+
+/* --- 6. RÉASSURANCE --- */
+section.reassurance-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 80px 20px;
+  background-color: var(--color-beige) !important;
+  border-top: 1px solid var(--color-border);
+  width: 100%;
+  z-index: 10;
+  position: relative;
+}
+
+.reassurance-item {
+  text-align: center;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.reassurance-item h4 {
+  font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
-  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--color-dark);
 }
 
-/* --- VERSION MOBILE (iPhone) --- */
+.reassurance-item p {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.reassurance-item:not(:last-child) {
+  border-right: 1px solid var(--color-border);
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  
-  /* 1. On passe la grille à 2 colonnes */
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales */
-    gap: 15px; /* Moins d'espace entre les produits */
-  }
-
-  /* 2. On réduit la taille du titre Géant */
-  .hero h2 {
-    font-size: 2.5rem; /* Beaucoup plus petit que les 4rem du PC */
-    line-height: 1.2;
-    padding: 0 20px; /* Pour ne pas toucher les bords */
-  }
-
-  /* 3. Ajustement de la section qui remonte */
-  .section-new {
-    padding: 40px 0; /* Moins de vide en haut/bas */
-  }
+  .hero h2 { font-size: 2.2rem; }
+  .categories-top, .categories-bottom { flex-direction: column; }
+  .categories-top .category-card, .categories-bottom .category-card { width: 100%; }
+  .reassurance-bar { flex-direction: column; gap: 40px; }
+  .reassurance-item:not(:last-child) { border-right: none; border-bottom: 1px solid var(--color-border); padding-bottom: 20px; }
 }

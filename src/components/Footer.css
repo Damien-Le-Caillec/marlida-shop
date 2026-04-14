@@ -4,14 +4,17 @@
   width: 100%;
   position: relative;
   z-index: 100;
+  /* On s'assure que le wrapper hérite du beige */
+  background-color: #fdfcf8;
 }
 
 /* --- 1. BARRE DE CONFIANCE (Trust Bar) --- */
 .trust-bar {
-  background-color: #f9f9f9; /* Fond très clair (gris perle) */
-  border-top: 1px solid rgba(0,0,0,0.05);
-  padding: 15px 0;
-  color: var(--color-dark);
+  /* Correction : Fond beige pour la cohérence */
+  background-color: #fdfcf8; 
+  border-top: 1px solid #e8e6e1;
+  padding: 20px 0;
+  color: #1a1a1a;
   font-size: 13px;
 }
 
@@ -19,6 +22,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .trust-item {
@@ -27,10 +33,9 @@
   gap: 10px;
 }
 
-
 /* Les étoiles dorées */
 .stars {
-  color: var(--color-gold);
+  color: #D4AF37; /* Or luxe */
   font-size: 12px;
   display: flex;
   gap: 2px;
@@ -39,27 +44,24 @@
 /* Les icônes de paiement */
 .payment-icons {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   font-size: 18px;
   color: #555;
   margin-left: 5px;
 }
 
-.lock-icon {
-  color: var(--color-gold);
-}
-
 .promo-item strong {
-  color: var(--color-gold);
+  color: #1a1a1a;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 
 /* --- 2. FOOTER COMPACT (Noir) --- */
 .footer-compact {
-  background-color: var(--color-dark);
-  color: var(--color-cream);
-  height: 50px; /* Très fin */
+  background-color: #1a1a1a; /* Noir pur style luxe */
+  color: #fdfcf8;
+  height: 50px;
   display: flex;
   align-items: center;
   font-size: 12px;
@@ -71,6 +73,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* NAVIGATION DROP-UP (Vers le haut) */
@@ -91,7 +96,7 @@
 .dropup-title {
   background: none;
   border: none;
-  color: var(--color-cream);
+  color: #fdfcf8;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 11px;
@@ -104,20 +109,15 @@
 }
 
 .dropup-title:hover {
-  color: var(--color-gold);
-}
-
-.arrow {
-  font-size: 10px;
-  color: #666;
+  opacity: 0.7;
 }
 
 /* LE MENU CACHÉ (Apparaît au-dessus) */
 .dropup-menu {
   position: absolute;
-  bottom: 50px; /* Juste au-dessus de la barre */
+  bottom: 50px; 
   left: -10px;
-  background-color: var(--color-dark);
+  background-color: #1a1a1a;
   min-width: 180px;
   list-style: none;
   padding: 10px 0;
@@ -131,7 +131,6 @@
   pointer-events: none;
 }
 
-/* Affichage au survol */
 .dropup-container:hover .dropup-menu {
   opacity: 1;
   visibility: visible;
@@ -142,7 +141,7 @@
 .dropup-menu li a {
   display: block;
   padding: 8px 20px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(253, 252, 248, 0.7);
   text-decoration: none;
   transition: 0.2s;
 }
@@ -157,21 +156,13 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .social-mini a {
-  color: var(--color-cream);
+  color: #fdfcf8;
   margin-left: 10px;
   font-size: 14px;
-}
-
-.social-mini a:hover {
-  color: var(--color-gold);
-}
-
-.separator {
-  font-size: 10px;
 }
 
 .copyright {
@@ -180,16 +171,37 @@
   font-size: 10px;
 }
 
+/* --- 3. SIGNATURE LOGO GÉANT (CORRIGÉ) --- */
+.big-brand-signature {
+  /* Force le fond beige identique au header */
+  background-color: #fdfcf8 !important; 
+  width: 100%;
+  padding: 100px 0 60px 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #e8e6e1;
+}
+
+.big-brand-signature img {
+  width: 90%; 
+  max-width: 1200px;
+  height: auto;
+  display: block;
+  /* Correction : On retire le grayscale pour garder la couleur */
+  filter: none !important; 
+  opacity: 1;
+  transition: transform 0.3s ease;
+}
+
 /* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
-  /* On empile la barre de confiance */
   .trust-content {
     flex-direction: column;
     gap: 15px;
     text-align: center;
   }
   
-  /* Footer compact sur mobile : on affiche tout */
   .footer-compact {
     height: auto;
     padding: 20px 0;
@@ -206,7 +218,6 @@
     gap: 0;
   }
   
-  /* Sur mobile, on transforme le drop-up en liste simple */
   .dropup-container {
     height: auto;
     flex-direction: column;
@@ -229,12 +240,19 @@
     box-shadow: none;
     border: none;
     padding: 0 0 15px 0;
-    display: none; /* Caché par défaut, on pourrait utiliser du JS pour ouvrir */
+    display: none; 
     width: 100%;
   }
   
-  /* Simple hover effect pour mobile (idéalement clic en JS) */
   .dropup-container:hover .dropup-menu {
     display: block;
+  }
+
+  .big-brand-signature {
+    padding: 60px 0 40px 0;
+  }
+
+  .big-brand-signature img {
+    width: 95%;
   }
 }

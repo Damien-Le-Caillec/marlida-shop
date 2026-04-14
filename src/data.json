@@ -5,11 +5,11 @@
     "category": "mode",
     "subcategory": "pantalons",
     "price": 270,
-    "image": "images/ondina/ondina-devant.webp",
+    "image": "/marlida-shop/images/ondina/ondina-devant.webp",
     "images": [
-      "images/ondina/ondina-devant.webp",
-      "images/ondina/ondina-port.webp",
-      "images/ondina/ondina-arriere.webp"
+      "/marlida-shop/images/ondina/ondina-devant.webp",
+      "/marlida-shop/images/ondina/ondina-port.webp",
+      "/marlida-shop/images/ondina/ondina-arriere.webp"
     ],
     "description": "Pantalon large coupe tailleur, élégance intemporelle.",
     "composition": "Lin et Coton",
@@ -21,12 +21,12 @@
     "category": "mode",
     "subcategory": "pantalons",
     "price": 330,
-    "image": "images/amarilis/amarilis-devant.webp",
+    "image": "/marlida-shop/images/amarilis/amarilis-devant.webp",
     "images": [
-      "images/amarilis/amarilis-devant.webp",
-      "images/amarilis/amarilis-port.webp",
-      "images/amarilis/amarilis-detail.webp",
-      "images/amarilis/amarilis-dos.webp"
+      "/marlida-shop/images/amarilis/amarilis-devant.webp",
+      "/marlida-shop/images/amarilis/amarilis-port.webp",
+      "/marlida-shop/images/amarilis/amarilis-detail.webp",
+      "/marlida-shop/images/amarilis/amarilis-dos.webp"
     ],
     "description": "Pantalon avec détails latéraux sophistiqués.",
     "composition": "Soie et Viscose",
@@ -38,16 +38,16 @@
     "category": "mode",
     "subcategory": "tops",
     "price": 390,
-    "image": "images/marea/marea-devant.webp",
+    "image": "/marlida-shop/images/marea/marea-devant.webp",
     "images": [
-      "images/marea/marea-devant.webp",
-      "images/marea/marea-port.webp",
-      "images/marea/marea-detail.webp",
-      "images/marea/marea-dos.webp"
+      "/marlida-shop/images/marea/marea-devant.webp",
+      "/marlida-shop/images/marea/marea-port.webp",
+      "/marlida-shop/images/marea/marea-detail.webp",
+      "/marlida-shop/images/marea/marea-dos.webp"
     ],
     "description": "Chemisier fluide, coupe aérienne.",
     "composition": "100% Soie",
-    "isNew": false
+    "isNew": true
   },
   {
     "id": 4,
@@ -55,15 +55,15 @@
     "category": "mode",
     "subcategory": "robes",
     "price": 690,
-    "image": "images/naia/naia-devant.webp",
+    "image": "/marlida-shop/images/naia/naia-devant.webp",
     "images": [
-      "images/naia/naia-devant.webp",
-      "images/naia/naia-port.webp",
-      "images/naia/naia-dos.webp"
+      "/marlida-shop/images/naia/naia-devant.webp",
+      "/marlida-shop/images/naia/naia-port.webp",
+      "/marlida-shop/images/naia/naia-dos.webp"
     ],
     "description": "Robe longue de soirée, drapé unique.",
     "composition": "Satin de Soie",
-    "isNew": false
+    "isNew": true
   },
   {
     "id": 5,
@@ -74,7 +74,7 @@
     "image": "https://placehold.co/400x600/EAD6C4/3D2114?text=Veleza",
     "description": "Foulard carré aux motifs géométriques.",
     "composition": "Soie",
-    "isNew": false
+    "isNew": true
   },
   {
     "id": 6,
@@ -82,9 +82,9 @@
     "category": "accessoires",
     "subcategory": "bijoux",
     "price": 150,
-    "image": "images/craveiro/craveiro.webp",
+    "image": "/marlida-shop/images/craveiro/craveiro.webp",
     "images": [
-      "images/craveiro/craveiro.webp"
+      "/marlida-shop/images/craveiro/craveiro.webp"
     ],
     "description": "Boucles d'oreilles motif floral.",
     "composition": "Laiton doré",

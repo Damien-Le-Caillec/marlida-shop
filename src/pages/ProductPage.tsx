@@ -1,86 +1,126 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import productsData from '../data.json';
-import type { Product } from '../types';
+import { Heart, Plus, Minus } from 'lucide-react';
 import './ProductPage.css';
-
-const products = (productsData as unknown) as Product[];
 
 const ProductPage = () => {
   const { id } = useParams<{ id: string }>();
-  const product = products.find(p => p.id === parseInt(id || '0'));
   
-  // État pour savoir quelle image on regarde (0 = la première)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // Correction du filtrage pour éviter les erreurs de type
+  const product = (productsData as any[]).find((p) => String(p.id) === id);
+  
+  const [selectedSize, setSelectedSize] = useState('');
+  const [quantity, setQuantity] = useState(1);
+  const [isWishlist, setIsWishlist] = useState(false);
 
-  if (!product) return <div className="container">Produit introuvable.</div>;
+  // Remonter en haut de page au changement de produit
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
-  // Sécurité : Si 'images' n'existe pas dans le JSON, on utilise juste 'image'
-  const gallery: string[] = Array.isArray(product.images) ? product.images : [product.image];
+  if (!product) {
+    return (
+      <div className="product-error">
+        <p>Produit introuvable</p>
+        <Link to="/">Retour à l'accueil</Link>
+      </div>
+    );
+  }
 
-  // Fonctions pour changer d'image
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % gallery.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
-  };
+  // Sécurité pour les images
+  const productImages = product.images && product.images.length > 0 
+    ? product.images 
+    : [product.image];
 
   return (
-    <div className="container product-page">
-      
-      {/* GAUCHE : LE CARROUSEL */}
-      <div className="product-gallery">
-        <div className="main-image-wrapper">
-          {/* Bouton Précédent (affiché seulement s'il y a plusieurs images) */}
-          {gallery.length > 1 && (
-            <button className="nav-btn prev" onClick={prevImage}>❮</button>
-          )}
-
-          <img src={gallery[currentImageIndex]} alt={product.name} className="main-image" />
-
-          {/* Bouton Suivant */}
-          {gallery.length > 1 && (
-            <button className="nav-btn next" onClick={nextImage}>❯</button>
-          )}
-        </div>
-
-        {/* Petites miniatures en dessous */}
-        {gallery.length > 1 && (
-          <div className="thumbnails">
-            {gallery.map((img, index) => (
-              <img 
-                key={index} 
-                src={img} 
-                alt={`Vue ${index}`} 
-                className={index === currentImageIndex ? "thumb active" : "thumb"}
-                onClick={() => setCurrentImageIndex(index)}
-              />
-            ))}
+    <div className="rouje-product-page">
+      {/* --- COLONNE GAUCHE : IMAGES --- */}
+      <div className="product-images-column">
+        {productImages.map((img: string, index: number) => (
+          <div className="product-image-wrapper" key={index}>
+            <img src={img} alt={`${product.name} - ${index}`} />
           </div>
-        )}
+        ))}
       </div>
 
-      {/* DROITE : INFOS PRODUIT (Inchangé) */}
-      <div className="product-details">
-        <h1>{product.name}</h1>
-        <p className="price">{product.price} €</p>
-        <p className="description">{product.description}</p>
-        
-        <div className="composition">
-          <strong>Composition:</strong> {product.composition}
-        </div>
+      {/* --- COLONNE DROITE : INFOS STICKY --- */}
+      <aside className="product-info-column">
+        <div className="product-info-sticky-wrapper">
+          
+          <nav className="product-breadcrumb">
+            <Link to="/">Accueil</Link> / {product.category}
+          </nav>
 
-        <button className="btn-primary" onClick={() => alert("Ajouté au panier")}>
-          Ajouter au panier
-        </button>
+          <div className="product-header">
+            <h1 className="product-title">{product.name}</h1>
+            <p className="product-price">{product.price}€</p>
+          </div>
 
-        <div className="extras">
-          <p>Livraison & Retours</p>
-          <p>Guide des tailles</p>
+          <div className="product-meta">
+            <p>Couleur : <strong>{product.color || 'Unique'}</strong></p>
+          </div>
+
+          {/* TAILLES */}
+          <div className="product-size-selector">
+            <div className="size-selector-header">
+              <label>Taille : <strong>{selectedSize || 'Sélectionner'}</strong></label>
+              <button className="size-guide-link">Guide des tailles</button>
+            </div>
+            <div className="size-buttons-grid">
+              {['34', '36', '38', '40', '42'].map(size => (
+                <button 
+                  key={size}
+                  className={`size-option-btn ${selectedSize === size ? 'active' : ''}`}
+                  onClick={() => setSelectedSize(size)}
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* QUANTITÉ */}
+          <div className="product-quantity-selector">
+            <label>Quantité</label>
+            <div className="quantity-controls">
+              <button onClick={() => setQuantity(Math.max(1, quantity - 1))}><Minus size={14} /></button>
+              <span>{quantity}</span>
+              <button onClick={() => setQuantity(quantity + 1)}><Plus size={14} /></button>
+            </div>
+          </div>
+
+          {/* ACTIONS */}
+          <div className="product-actions-group">
+            <button className="btn-add-to-cart">Ajouter au panier</button>
+            <button 
+              className={`btn-wishlist ${isWishlist ? 'active' : ''}`}
+              onClick={() => setIsWishlist(!isWishlist)}
+            >
+              <Heart size={20} fill={isWishlist ? "#1a1a1a" : "none"} />
+            </button>
+          </div>
+
+          {/* ACCORDÉONS */}
+          <div className="product-details-accordion">
+            <details open>
+              <summary>Composition & Entretien</summary>
+              <div className="accordion-content">
+                <p>Matière principale : 100% Matières naturelles.</p>
+                <p>Nettoyage à sec ou lavage délicat recommandé.</p>
+              </div>
+            </details>
+            <details>
+              <summary>Livraison & Retours</summary>
+              <div className="accordion-content">
+                <p>Livraison offerte dès 250€.</p>
+                <p>Retours sous 15 jours.</p>
+              </div>
+            </details>
+          </div>
+
         </div>
-      </div>
+      </aside>
     </div>
   );
 };

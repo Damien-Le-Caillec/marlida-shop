@@ -70,7 +70,6 @@ const Header = () => {
       <div className="top-bar">Livraison offerte dès 200€ d'achat</div>
       
       <nav className="navbar container">
-        {/* --- GAUCHE : Menu Principal --- */}
         <ul className="nav-links">
           {LEFT_MENU_ITEMS.map((item, index) => (
             <li key={index} className="menu-item">
@@ -88,20 +87,17 @@ const Header = () => {
           ))}
         </ul>
         
-        {/* --- CENTRE : Logo --- */}
         <div className="logo">
-          <Link to="/"><img src="images/logo.webp" alt="Marlida Paris" className="logo-img" /></Link>
+          <Link to="/"><img src="/marlida-shop/images/logo.webp" alt="Marlida Paris" className="logo-img" /></Link>
         </div>
 
-        {/* --- DROITE : La Marque + Icônes --- */}
         <div className="nav-icons">
           
-          {/* ICI : On insère "La Marque" à la place de Recherche */}
           <div className="menu-item">
             <Link to={BRAND_MENU_ITEM.path} className="menu-link">
               {BRAND_MENU_ITEM.label}
             </Link>
-            <ul className="dropdown dropdown-right"> {/* Ajout de la classe dropdown-right */}
+            <ul className="dropdown dropdown-right">
               {BRAND_MENU_ITEM.submenu.map((subItem, subIndex) => (
                 <li key={subIndex}>
                   <Link to={subItem.path}>{subItem.label}</Link>
@@ -110,7 +106,6 @@ const Header = () => {
             </ul>
           </div>
 
-          {/* Les autres icônes */}
           <span>Compte</span>
           <span>Panier (0)</span>
         </div>

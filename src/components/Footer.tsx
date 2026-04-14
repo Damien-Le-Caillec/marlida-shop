@@ -114,7 +114,11 @@ const Footer = () => {
 
         </div>
       </footer>
+      <div className="big-brand-signature">
+        <img src="/marlida-shop/images/logo.webp" alt="Marlida Paris" />
+      </div>
     </div>
+    
   );
 };
 
